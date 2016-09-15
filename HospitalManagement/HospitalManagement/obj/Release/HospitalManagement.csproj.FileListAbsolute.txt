@@ -1,0 +1,5 @@
+D:\1. Work Project\HospitalManagement\HospitalManagement\bin\HospitalManagement.dll
+D:\1. Work Project\HospitalManagement\HospitalManagement\bin\HospitalManagement.pdb
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Release\HospitalManagement.csprojResolveAssemblyReference.cache
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Release\HospitalManagement.dll
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Release\HospitalManagement.pdb

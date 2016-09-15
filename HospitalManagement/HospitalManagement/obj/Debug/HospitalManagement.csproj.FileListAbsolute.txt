@@ -1,0 +1,6 @@
+D:\1. Work Project\HospitalManagement\HospitalManagement\bin\HospitalManagement.dll
+D:\1. Work Project\HospitalManagement\HospitalManagement\bin\HospitalManagement.pdb
+D:\1. Work Project\HospitalManagement\HospitalManagement\bin\AjaxControlToolkit.dll
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.csprojResolveAssemblyReference.cache
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.dll
+D:\1. Work Project\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.pdb

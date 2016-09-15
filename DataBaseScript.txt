@@ -1,0 +1,121 @@
+/****** Object:  Table [dbo].[appointment]    Script Date: 05/31/2015 19:05:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[appointment]') AND type in (N'U'))
+DROP TABLE [dbo].[appointment]
+GO
+/****** Object:  Table [dbo].[patient_history]    Script Date: 05/31/2015 19:05:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[patient_history]') AND type in (N'U'))
+DROP TABLE [dbo].[patient_history]
+GO
+/****** Object:  Table [dbo].[USERS]    Script Date: 05/31/2015 19:05:12 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[USERS]') AND type in (N'U'))
+DROP TABLE [dbo].[USERS]
+GO
+/****** Object:  Table [dbo].[USERS]    Script Date: 05/31/2015 19:05:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[USERS]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[USERS](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[USERNAME] [varchar](50) NULL,
+	[PASSWORD] [varchar](50) NULL,
+ CONSTRAINT [PK_USERS] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[USERS] ON
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (1, N'Administrator', N'@@@')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (2, N'Patient', N'$$$')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (3, N'Staff', N'%%%')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (4, N'Physician', N'***')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (5, N'Nurse', N'~~~')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (6, N'John', N'one')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (7, N'Jill', N'two')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (8, N'Janet', N'three')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (9, N'Jeremy', N'four')
+INSERT [dbo].[USERS] ([ID], [USERNAME], [PASSWORD]) VALUES (10, N'Jacob', N'five')
+SET IDENTITY_INSERT [dbo].[USERS] OFF
+/****** Object:  Table [dbo].[patient_history]    Script Date: 05/31/2015 19:05:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[patient_history]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[patient_history](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[patient_name] [varchar](50) NULL,
+	[patient_email] [varchar](50) NULL,
+	[visited_date] [datetime] NULL,
+	[temp] [varchar](50) NULL,
+	[bp] [varchar](50) NULL,
+	[symptoms] [varchar](50) NULL,
+	[pulse] [varchar](50) NULL,
+	[ptype] [varchar](50) NULL,
+	[physician_name] [varchar](50) NULL,
+	[comments] [varchar](250) NULL,
+	[pdept] [varchar](150) NULL,
+ CONSTRAINT [PK_patient_history] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[patient_history] ON
+INSERT [dbo].[patient_history] ([id], [patient_name], [patient_email], [visited_date], [temp], [bp], [symptoms], [pulse], [ptype], [physician_name], [comments], [pdept]) VALUES (1, N'AAA', N'AA@gmail.com', CAST(0x0000A4AB00000000 AS DateTime), N'32', N'135/85', N'fever', N'72', N'Oncology', N'DDD', N'sads', N'Physician')
+INSERT [dbo].[patient_history] ([id], [patient_name], [patient_email], [visited_date], [temp], [bp], [symptoms], [pulse], [ptype], [physician_name], [comments], [pdept]) VALUES (2, N'BBB', N'BB@gmail.com', CAST(0x0000A4AC00000000 AS DateTime), N'45.00', N'135/85', N'swollen lymph glands in the neck and armpits', N'72', N'Oncology', N'DDD', N'szdcs', N'Nurse')
+INSERT [dbo].[patient_history] ([id], [patient_name], [patient_email], [visited_date], [temp], [bp], [symptoms], [pulse], [ptype], [physician_name], [comments], [pdept]) VALUES (3, N'CCC', N'CC@gmail.com', CAST(0x0000A4AB00000000 AS DateTime), N'32.00', N'135/85', N'headache', N'72', N'Oncology', N'FFFF', N'sdf', N'Nurse')
+SET IDENTITY_INSERT [dbo].[patient_history] OFF
+/****** Object:  Table [dbo].[appointment]    Script Date: 05/31/2015 19:05:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[appointment]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[appointment](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[patient_name] [varchar](50) NULL,
+	[physician_name] [varchar](50) NULL,
+	[specialty] [varchar](50) NULL,
+	[app_date] [datetime] NULL,
+	[patient_email] [varchar](50) NULL,
+ CONSTRAINT [PK_appointment] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[appointment] ON
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (1, N'Sunil', NULL, NULL, NULL, NULL)
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (2, N'Amol', N'Goldberg Martin MD', N'Oncology', CAST(0x0000A4AF00000000 AS DateTime), N'Amol@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (3, N'', N'Goldberg Martin MD', N'Cardiology', CAST(0x0000000000000000 AS DateTime), N'')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (4, N'Jon', N'Goldberg Martin MD', N'Cardiology', CAST(0x0000000000000000 AS DateTime), N'Jon@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (5, N'Jon', N'Goldberg Martin MD', N'Cardiology', CAST(0x0000A4AF00000000 AS DateTime), N'Jon@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (6, N'', N'Doug Comer', N'Cardiology', CAST(0x0000000000000000 AS DateTime), N'')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (7, N'', N'Doug Comer', N'Cardiology', CAST(0x0000000000000000 AS DateTime), N'')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (8, N'', N'Dr. Jennifer Bright', N'Cardiology', CAST(0x0000A4AA00000000 AS DateTime), N'')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (9, N'Mohan', N'Dr. Jennifer Bright', N'Cardiology', CAST(0x0000A4AC00000000 AS DateTime), N'mohan@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (10, N'Shambhu', N'Louis J. Raso, M.D', N'Pediatrics', CAST(0x0000A4AD00000000 AS DateTime), N'Sam@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (11, N'Shrikant', N'David A. Zarou', N'Opthamology', CAST(0x0000A4AC00000000 AS DateTime), N'Shree@gmail.com')
+INSERT [dbo].[appointment] ([id], [patient_name], [physician_name], [specialty], [app_date], [patient_email]) VALUES (12, N'Prashant', N'David A. Zarou', N'Opthamology', CAST(0x0000A4AB00000000 AS DateTime), N'Prashant@gmail.com')
+SET IDENTITY_INSERT [dbo].[appointment] OFF
